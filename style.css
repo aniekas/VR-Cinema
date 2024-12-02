@@ -1,0 +1,62 @@
+    /* Chatbot styling */
+    #chatbot-popup {
+      position: fixed;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 9999; /* Ensure chatbot stays on top */
+      background-color: rgba(0, 0, 0, 0.7);
+      padding: 20px;
+      border-radius: 10px;
+      color: white;
+      width: 300px;
+      display: block; /* Make sure it's visible */
+    }
+
+    /* Other Chatbot Styles */
+    .chatbot-container {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    #input-area {
+      display: flex;
+      margin-top: 10px;
+    }
+
+    #user-input {
+      flex: 1;
+      padding: 8px;
+    }
+
+    #send-btn {
+      padding: 8px;
+      background-color: #FF5722;
+      color: white;
+    }
+
+    /* Prevent A-Frame scene from overlaying the chatbot */
+    a-scene {
+      position: relative;
+      z-index: 1; /* Lower z-index so chatbot is above it */
+    }
+
+    .message {
+  margin-bottom: 10px;
+  padding: 8px;
+  border-radius: 5px;
+  max-width: 80%;
+  line-height: 1.5;
+}
+
+.user-message {
+  background-color: #5fa9e6;
+  text-align: right;
+}
+
+.bot-message {
+  background-color: #4a4a4a;
+  text-align: left;
+}
