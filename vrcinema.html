@@ -74,25 +74,54 @@
     <a-box position="25 5 -10" width="1" height="20" depth="40" color="#888"></a-box>
     <a-box position="0 5 10" width="50" height="20" depth="1" color="#888"></a-box>
 
-    <!-- Lobby -->
-    <a-entity id="lobby" position="0 0 20">
-      <!-- Lobby Floor -->
-      <a-plane position="0 -2 0" rotation="-90 0 0" width="50" height="30" color="#555"></a-plane>
-      
-      <!-- Lobby Walls -->
-      <a-box position="0 6 -15" width="50" height="12" depth="1" color="#888"></a-box>
-      <a-box position="-25 6 0" width="1" height="12" depth="30" color="#888"></a-box>
-      <a-box position="25 6 0" width="1" height="12" depth="30" color="#888"></a-box>
-      <a-box position="0 6 15" width="50" height="12" depth="1" color="#888"></a-box>
+<!-- Lobby -->
+<a-entity id="lobby" position="0 0 20">
+  <!-- Lobby Floor -->
+  <a-plane position="0 -1 0" rotation="-90 0 0" width="50" height="30" color="#4444FF"></a-plane>
 
-      <!-- Entrance -->
-      <a-box position="0 2 -7.5" width="8" height="4" depth="1" color="#444"></a-box>
+  <!-- Lobby Walls -->
+  <a-box position="0 6 -15" width="50" height="12" depth="1" color="#FF6F61"></a-box>
+  <a-box position="-25 6 0" width="1" height="12" depth="30" color="#6B6BEF"></a-box>
+  <a-box position="25 6 0" width="1" height="12" depth="30" color="#6B6BEF"></a-box>
+  <a-box position="0 6 15" width="50" height="12" depth="1" color="#FF6F61"></a-box>
 
-      <!-- Decorations -->
-      <a-box position="-10 0 -5" width="3" height="6" depth="3" color="#777"></a-box>
-      <a-box position="10 0 -5" width="3" height="6" depth="3" color="#777"></a-box>
-      <a-box position="0 0 -12" width="5" height="1" depth="3" color="#FF5722"></a-box>
-    </a-entity>
+  <!-- VR CINEMA Sign -->
+  <a-text value="VR CINEMA" position="0 10 -8" align="center" color="#FFD700" scale="15 15 15"></a-text>
+
+  <!-- Entrance -->
+  <a-box position="0 2 -7.5" width="8" height="4" depth="1" color="#222"></a-box>
+
+  <!-- door 1 -->
+  <a-plane position="-18 0 -9" width="3" height="10" color="000000"></a-plane>
+  <a-sphere position="-17 2 -8.9" radius="0.1" color="#FFD700"></a-sphere>
+
+
+  <!-- Light Fixtures -->
+  <a-box position="-10 10 0" width="1" height="0.2" depth="3" color="#FFCC00"></a-box>
+  <a-box position="10 10 0" width="1" height="0.2" depth="3" color="#FFCC00"></a-box>
+
+  <!-- Seating -->
+  <a-box position="0 -1 -2" width="15" height="0.5" depth="3" color="#E91E63"></a-box>
+
+  <!-- Concession Stand -->
+  <a-box position="0 0 -6" width="10" height="4" depth="3" color="#555"></a-box>
+  <a-plane position="0 3 11.5" width="9.5" height="1" color="#FFC107"></a-plane>
+  <a-box position="-11 0 -8" width="2" height="3" depth="0.5" color="#FF5722"></a-box> <!-- Popcorn Machine -->
+  <a-box position="11 0 -8" width="2" height="3" depth="0.5" color="#03A9F4"></a-box> <!-- Soda Machine -->
+
+  <!-- Worker -->
+  <a-entity position="0 1 -6">
+    <a-box position="0 1 0" width="1" height="2" depth="0.5" color="#00BCD4"></a-box> <!-- Body -->
+    <a-sphere position="0 2.5 0" radius="0.5" color="#FFC107"></a-sphere> <!-- Head -->
+    <a-box position="0.5 1.5 0" width="0.2" height="1" depth="0.2" color="#FF5722"></a-box> <!-- Arm -->
+    <a-box position="-0.5 1.5 0" width="0.2" height="1" depth="0.2" color="#FF5722"></a-box> <!-- Arm -->
+  </a-entity>
+
+  <!-- Signs -->
+  <a-text value="Tickets" position="-11 5 -8" align="center" color="#FFFFFF" scale="6 6 6"></a-text>
+  <a-text value="Snacks" position="11 5 -8" align="center" color="#FFFFFF" scale="6 6 6"></a-text>
+
+</a-entity>
 
     <!-- Chandelier in Lobby -->
 <a-sphere position="0 8 25" radius="1.5" color="#FFD700" material="emissive: #white; roughness: 0.5;"></a-sphere>
