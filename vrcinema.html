@@ -5,24 +5,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>VR Cinema</title>
   <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <a-scene background="color:#888">
+  <a-scene background="color: black">
+    <a-camera position="0 2.5 25" wasd-controls="enabled: true"></a-camera>
+
     <!-- Cinema Floor -->
     <a-plane position="0 -2 -10" rotation="-90 0 0" width="50" height="30" color="#333"></a-plane>
 
-    <!-- Left curtain -->
-<a-box position="-20 10 -24" width="4" height="20" depth="0.5" color="#8B0000"></a-box>
-<!-- Right curtain -->
-<a-box position="20 10 -24" width="4" height="20" depth="0.5" color="#8B0000"></a-box>
-
-<!-- Cinema Screen -->
+    <!-- Cinema Screen -->
     <a-box position="0 6 -28" width="40" height="20" depth="1" color="#000"></a-box>
     <a-video src="#cinema-video" position="0 6 -24.9" width="38" height="19" material="shader: flat;"></a-video>
     <video id="cinema-video" src="assets/video.mp4" autoplay loop crossorigin="anonymous"></video>
+    <a-box position="0 6 -24.05" width="40.2" height="20.2" depth="1.2" color="red"></a-box>
+
 
     <!-- Rows of Chairs -->
-    <a-entity id="chairs-rows" position="0 -1 0">
+    <a-entity id="chairs-rows" position="0 -1 -10">
       <script>
         const rows = 10; // Number of rows
         const chairsPerRow = 9; // Total number of chairs per row (before removing one for aisle)
@@ -54,21 +54,11 @@
       </script>
     </a-entity>
     <!--Carpet-->
-    <a-plane position="0 -1.99 -10" rotation="-90 0 0" width="2" height="30" color="#660000"></a-plane>
-    <!-- Carpet Lights -->
-<a-box position="-1.5 -1.9 0" width="0.2" height="0.1" depth="0.2" color="#FFD700" material="emissive: #FFD700;"></a-box>
-<a-box position="1.5 -1.9 0" width="0.2" height="0.1" depth="0.2" color="#FFD700" material="emissive: #FFD700;"></a-box>
-<a-box position="-1.5 -1.9 -5" width="0.2" height="0.1" depth="0.2" color="#FFD700" material="emissive: #FFD700;"></a-box>
-<a-box position="1.5 -1.9 -5" width="0.2" height="0.1" depth="0.2" color="#FFD700" material="emissive: #FFD700;"></a-box>
-<a-box position="-1.5 -1.9 -10" width="0.2" height="0.1" depth="0.2" color="#FFD700" material="emissive: #FFD700;"></a-box>
-<a-box position="1.5 -1.9 -10" width="0.2" height="0.1" depth="0.2" color="#FFD700" material="emissive: #FFD700;"></a-box>
-<a-box position="-1.5 -1.9 -15" width="0.2" height="0.1" depth="0.2" color="#FFD700" material="emissive: #FFD700;"></a-box>
-<a-box position="1.5 -1.9 -15" width="0.2" height="0.1" depth="0.2" color="#FFD700" material="emissive: #FFD700;"></a-box>
-<a-box position="-1.5 -1.9 -20" width="0.2" height="0.1" depth="0.2" color="#FFD700" material="emissive: #FFD700;"></a-box>
-<a-box position="1.5 -1.9 -20" width="0.2" height="0.1" depth="0.2" color="#FFD700" material="emissive: #FFD700;"></a-box>
+    <a-plane position="0 -1.99 -10" rotation="-90 0 0" width="2" height="20" color="#660000"></a-plane>
+
 
     <!-- Cinema Walls -->
-    <a-box position="0 20 -10" width="50" height="0" depth="40" color="#888"></a-box>
+    <a-box position="0 20 -10" width="50" height="0" depth="40" color="#000"></a-box>
     <a-box position="0 5 -30" width="50" height="20" depth="1" color="#888"></a-box>
     <a-box position="-25 5 -10" width="1" height="20" depth="40" color="#888"></a-box>
     <a-box position="25 5 -10" width="1" height="20" depth="40" color="#888"></a-box>
@@ -81,12 +71,12 @@
 
   <!-- Lobby Walls -->
   <a-box position="0 6 -15" width="50" height="12" depth="1" color="#FF6F61"></a-box>
-  <a-box position="-25 6 0" width="1" height="12" depth="30" color="#6B6BEF"></a-box>
-  <a-box position="25 6 0" width="1" height="12" depth="30" color="#6B6BEF"></a-box>
-  <a-box position="0 6 15" width="50" height="12" depth="1" color="#FF6F61"></a-box>
+  <a-box position="-25 4 0" width="1" height="12" depth="30" color="#6B6BEF"></a-box>
+  <a-box position="25 4 0" width="1" height="12" depth="30" color="#6B6BEF"></a-box>
+  <a-box position="0 4 15" width="50" height="12" depth="1" color="#FF6F61"></a-box>
 
   <!-- VR CINEMA Sign -->
-  <a-text value="VR CINEMA" position="0 10 -8" align="center" color="#FFD700" scale="15 15 15"></a-text>
+  <a-text value="VR CINEMA" position="0 8 -8" align="center" color="#FFD700" scale="15 15 15"></a-text>
 
   <!-- Entrance -->
   <a-box position="0 2 -7.5" width="8" height="4" depth="1" color="#222"></a-box>
@@ -100,8 +90,8 @@
   <a-box position="-10 10 0" width="1" height="0.2" depth="3" color="#FFCC00"></a-box>
   <a-box position="10 10 0" width="1" height="0.2" depth="3" color="#FFCC00"></a-box>
 
-  <!-- Seating -->
-  <a-box position="0 -1 -2" width="15" height="0.5" depth="3" color="#E91E63"></a-box>
+  <!-- pink rug -->
+  <a-box position="0 -1 0" width="15" height="0.5" depth="3" color="#E91E63"></a-box>
 
   <!-- Concession Stand -->
   <a-box position="0 0 -6" width="10" height="4" depth="3" color="#555"></a-box>
@@ -118,19 +108,30 @@
   </a-entity>
 
   <!-- Signs -->
-  <a-text value="Tickets" position="-11 5 -8" align="center" color="#FFFFFF" scale="6 6 6"></a-text>
-  <a-text value="Snacks" position="11 5 -8" align="center" color="#FFFFFF" scale="6 6 6"></a-text>
+  <a-text value="Tickets" position="-11 3.4 -8" align="center" color="#FFFFFF" scale="5 5 5"></a-text>
+  <a-text value="Snacks" position="11 3.4 -8" align="center" color="#FFFFFF" scale="5 5 5"></a-text>
 
 </a-entity>
-
-    <!-- Chandelier in Lobby -->
-<a-sphere position="0 8 25" radius="1.5" color="#FFD700" material="emissive: #white; roughness: 0.5;"></a-sphere>
-<a-cylinder position="0 10 25" radius="0.2" height="4" color="#white"></a-cylinder>
 
 
     <!-- Lighting -->
     <a-light type="ambient" color="#999"></a-light>
     <a-light type="spot" position="0 10 -5" angle="60" intensity="0.8" target="#chairs-rows"></a-light>
   </a-scene>
+
+    <div id="chatbot-popup" class="hidden">
+      <div class="chatbot-container">
+        <div id="chatbot-header">Virtual Theater Assistant</div>
+        <div id="chat-area">
+          <div id="messages"></div>
+        </div>
+        <div id="input-area">
+          <input type="text" id="user-input" placeholder="Ask me anything..." />
+          <button id="send-btn">Send</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="aframe.js"></script>
 </body>
 </html>
