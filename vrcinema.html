@@ -7,14 +7,16 @@
   <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
 </head>
 <body>
-  <a-scene>
+  <a-scene background="color: black">
     <!-- Cinema Floor -->
     <a-plane position="0 -2 -10" rotation="-90 0 0" width="50" height="30" color="#333"></a-plane>
 
     <!-- Cinema Screen -->
-    <a-box position="0 6 -25" width="40" height="20" depth="1" color="#000"></a-box>
+    <a-box position="0 6 -28" width="40" height="20" depth="1" color="#000"></a-box>
     <a-video src="#cinema-video" position="0 6 -24.9" width="38" height="19" material="shader: flat;"></a-video>
     <video id="cinema-video" src="assets/video.mp4" autoplay loop crossorigin="anonymous"></video>
+    <a-box position="0 6 -24.05" width="40.2" height="20.2" depth="1.2" color="red"></a-box>
+
 
     <!-- Rows of Chairs -->
     <a-entity id="chairs-rows" position="0 -1 -10">
