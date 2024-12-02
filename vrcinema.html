@@ -7,61 +7,81 @@
   <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
 </head>
 <body>
-    <a-scene>
-        <!-- Chair Row -->
-        <a-entity id="chairs-row" position="0 -1 -3">
-          <!-- Chair 1 -->
-          <a-entity position="-3 0 0" rotation="0 180 0">
-            <!-- Backrest -->
-            <a-box position="0 1.2 0" width="0.8" height="1.2" depth="0.2" color="#880E4F" material="roughness: 0.6"></a-box>
-            <!-- Seat -->
-            <a-box position="0 0.6 0.4" width="0.8" height="0.2" depth="0.8" color="#C2185B" material="roughness: 0.6"></a-box>
-            <!-- Armrests -->
-            <a-box position="-0.4 0.6 0.4" width="0.1" height="0.3" depth="0.8" color="#5D4037"></a-box>
-            <a-box position="0.4 0.6 0.4" width="0.1" height="0.3" depth="0.8" color="#5D4037"></a-box>
-          </a-entity>
+  <a-scene>
+    <!-- Cinema Floor -->
+    <a-plane position="0 -2 -10" rotation="-90 0 0" width="50" height="30" color="#333"></a-plane>
+
+    <!-- Cinema Screen -->
+    <a-box position="0 6 -25" width="40" height="20" depth="1" color="#000"></a-box>
+    <a-video src="#cinema-video" position="0 6 -24.9" width="38" height="19" material="shader: flat;"></a-video>
+    <video id="cinema-video" src="assets/video.mp4" autoplay loop crossorigin="anonymous"></video>
+
+    <!-- Rows of Chairs -->
+    <a-entity id="chairs-rows" position="0 -1 -10">
+      <script>
+        const rows = 10; // Number of rows
+        const chairsPerRow = 9; // Total number of chairs per row (before removing one for aisle)
+        const rowSpacing = 2.5; // Distance between rows
+        const chairSpacing = 2; // Distance between chairs
+    
+        for (let i = 0; i < rows; i++) {
+          for (let j = 0; j < chairsPerRow; j++) {
+            const middleChair = Math.floor(chairsPerRow / 2); // Middle column index
+    
+            // Skip the middle column to create an aisle
+            if (j === middleChair) {
+              continue;
+            }
+    
+            const xOffset = (j - (chairsPerRow - 1) / 2) * chairSpacing;
+            const zOffset = i * -rowSpacing;
+    
+            document.write(`
+              <a-entity position="${xOffset} 0 ${zOffset}" rotation="0 180 0">
+                <a-box position="0 1.2 0" width="0.8" height="1.2" depth="0.2" color="#880E4F" material="roughness: 0.6"></a-box>
+                <a-box position="0 0.6 0.4" width="0.8" height="0.2" depth="0.8" color="#C2185B" material="roughness: 0.6"></a-box>
+                <a-box position="-0.4 0.6 0.4" width="0.1" height="0.3" depth="0.8" color="#5D4037"></a-box>
+                <a-box position="0.4 0.6 0.4" width="0.1" height="0.3" depth="0.8" color="#5D4037"></a-box>
+              </a-entity>
+            `);
+          }
+        }
+      </script>
+    </a-entity>
+    <!--Carpet-->
+    <a-plane position="0 -1.99 -10" rotation="-90 0 0" width="2" height="20" color="#660000"></a-plane>
+
+
+    <!-- Cinema Walls -->
+    <a-box position="0 20 -10" width="50" height="0" depth="40" color="#000"></a-box>
+    <a-box position="0 5 -30" width="50" height="20" depth="1" color="#888"></a-box>
+    <a-box position="-25 5 -10" width="1" height="20" depth="40" color="#888"></a-box>
+    <a-box position="25 5 -10" width="1" height="20" depth="40" color="#888"></a-box>
+    <a-box position="0 5 10" width="50" height="20" depth="1" color="#888"></a-box>
+
+    <!-- Lobby -->
+    <a-entity id="lobby" position="0 0 20">
+      <!-- Lobby Floor -->
+      <a-plane position="0 -2 0" rotation="-90 0 0" width="50" height="30" color="#555"></a-plane>
       
-          <!-- Chair 2 -->
-          <a-entity position="0 0 0" rotation="0 180 0">
-            <a-box position="0 1.2 0" width="0.8" height="1.2" depth="0.2" color="#880E4F" material="roughness: 0.6"></a-box>
-            <a-box position="0 0.6 0.4" width="0.8" height="0.2" depth="0.8" color="#C2185B" material="roughness: 0.6"></a-box>
-            <a-box position="-0.4 0.6 0.4" width="0.1" height="0.3" depth="0.8" color="#5D4037"></a-box>
-            <a-box position="0.4 0.6 0.4" width="0.1" height="0.3" depth="0.8" color="#5D4037"></a-box>
-          </a-entity>
-      
-          <!-- Chair 3 -->
-          <a-entity position="3 0 0" rotation="0 180 0">
-            <a-box position="0 1.2 0" width="0.8" height="1.2" depth="0.2" color="#880E4F" material="roughness: 0.6"></a-box>
-            <a-box position="0 0.6 0.4" width="0.8" height="0.2" depth="0.8" color="#C2185B" material="roughness: 0.6"></a-box>
-            <a-box position="-0.4 0.6 0.4" width="0.1" height="0.3" depth="0.8" color="#5D4037"></a-box>
-            <a-box position="0.4 0.6 0.4" width="0.1" height="0.3" depth="0.8" color="#5D4037"></a-box>
-          </a-entity>
-        </a-entity>
-      
-        <!-- Cinema Room -->
-        <a-plane position="0 -2 -5" rotation="-90 0 0" width="20" height="15" color="#333"></a-plane>
-        <a-box position="0 0 -6" width="12" height="8" depth="1" color="#000"></a-box>
-      
-  <!-- Video Element -->
-  <a-video src="#cinema-video" position="0 1 -5" width="16" height="9"></a-video>
-  <video id="cinema-video" src="assets/video.mp4" autoplay loop crossorigin="anonymous"></video>
+      <!-- Lobby Walls -->
+      <a-box position="0 6 -15" width="50" height="12" depth="1" color="#888"></a-box>
+      <a-box position="-25 6 0" width="1" height="12" depth="30" color="#888"></a-box>
+      <a-box position="25 6 0" width="1" height="12" depth="30" color="#888"></a-box>
+      <a-box position="0 6 15" width="50" height="12" depth="1" color="#888"></a-box>
+
+      <!-- Entrance -->
+      <a-box position="0 2 -7.5" width="8" height="4" depth="1" color="#444"></a-box>
+
+      <!-- Decorations -->
+      <a-box position="-10 0 -5" width="3" height="6" depth="3" color="#777"></a-box>
+      <a-box position="10 0 -5" width="3" height="6" depth="3" color="#777"></a-box>
+      <a-box position="0 0 -12" width="5" height="1" depth="3" color="#FF5722"></a-box>
+    </a-entity>
+
+    <!-- Lighting -->
+    <a-light type="ambient" color="#999"></a-light>
+    <a-light type="spot" position="0 10 -5" angle="60" intensity="0.8" target="#chairs-rows"></a-light>
+  </a-scene>
 </body>
 </html>
-<!-- Lobby -->
-<a-entity id="lobby" position="0 0 10">
-    <!-- Lobby Floor -->
-    <a-plane position="0 -2 0" rotation="-90 0 0" width="20" height="20" color="#555"></a-plane>
-    
-    <!-- Lobby Walls -->
-    <a-box position="0 3 -10" width="20" height="6" depth="1" color="#888"></a-box>
-    <a-box position="-10 3 0" width="1" height="6" depth="20" color="#888"></a-box>
-    <a-box position="10 3 0" width="1" height="6" depth="20" color="#888"></a-box>
-    <a-box position="0 3 10" width="20" height="6" depth="1" color="#888"></a-box>
-    
-    <!-- Lobby Entrance to Cinema Room -->
-    <a-box position="0 1 -5" width="4" height="4" depth="1" color="#444"></a-box>
-    
-    <!-- Lobby Decorations -->
-    <a-box position="-5 0 -5" width="2" height="4" depth="2" color="#777"></a-box>
-    <a-box position="5 0 -5" width="2" height="4" depth="2" color="#777"></a-box>
-</a-entity>
