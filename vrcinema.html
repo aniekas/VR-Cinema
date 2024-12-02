@@ -7,19 +7,22 @@
   <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
 </head>
 <body>
-  <a-scene background="color: black">
+  <a-scene background="color:#888">
     <!-- Cinema Floor -->
     <a-plane position="0 -2 -10" rotation="-90 0 0" width="50" height="30" color="#333"></a-plane>
 
-    <!-- Cinema Screen -->
+    <!-- Left curtain -->
+<a-box position="-20 10 -24" width="4" height="20" depth="0.5" color="#8B0000"></a-box>
+<!-- Right curtain -->
+<a-box position="20 10 -24" width="4" height="20" depth="0.5" color="#8B0000"></a-box>
+
+<!-- Cinema Screen -->
     <a-box position="0 6 -28" width="40" height="20" depth="1" color="#000"></a-box>
     <a-video src="#cinema-video" position="0 6 -24.9" width="38" height="19" material="shader: flat;"></a-video>
     <video id="cinema-video" src="assets/video.mp4" autoplay loop crossorigin="anonymous"></video>
-    <a-box position="0 6 -24.05" width="40.2" height="20.2" depth="1.2" color="red"></a-box>
-
 
     <!-- Rows of Chairs -->
-    <a-entity id="chairs-rows" position="0 -1 -10">
+    <a-entity id="chairs-rows" position="0 -1 0">
       <script>
         const rows = 10; // Number of rows
         const chairsPerRow = 9; // Total number of chairs per row (before removing one for aisle)
@@ -51,11 +54,21 @@
       </script>
     </a-entity>
     <!--Carpet-->
-    <a-plane position="0 -1.99 -10" rotation="-90 0 0" width="2" height="20" color="#660000"></a-plane>
-
+    <a-plane position="0 -1.99 -10" rotation="-90 0 0" width="2" height="30" color="#660000"></a-plane>
+    <!-- Carpet Lights -->
+<a-box position="-1.5 -1.9 0" width="0.2" height="0.1" depth="0.2" color="#FFD700" material="emissive: #FFD700;"></a-box>
+<a-box position="1.5 -1.9 0" width="0.2" height="0.1" depth="0.2" color="#FFD700" material="emissive: #FFD700;"></a-box>
+<a-box position="-1.5 -1.9 -5" width="0.2" height="0.1" depth="0.2" color="#FFD700" material="emissive: #FFD700;"></a-box>
+<a-box position="1.5 -1.9 -5" width="0.2" height="0.1" depth="0.2" color="#FFD700" material="emissive: #FFD700;"></a-box>
+<a-box position="-1.5 -1.9 -10" width="0.2" height="0.1" depth="0.2" color="#FFD700" material="emissive: #FFD700;"></a-box>
+<a-box position="1.5 -1.9 -10" width="0.2" height="0.1" depth="0.2" color="#FFD700" material="emissive: #FFD700;"></a-box>
+<a-box position="-1.5 -1.9 -15" width="0.2" height="0.1" depth="0.2" color="#FFD700" material="emissive: #FFD700;"></a-box>
+<a-box position="1.5 -1.9 -15" width="0.2" height="0.1" depth="0.2" color="#FFD700" material="emissive: #FFD700;"></a-box>
+<a-box position="-1.5 -1.9 -20" width="0.2" height="0.1" depth="0.2" color="#FFD700" material="emissive: #FFD700;"></a-box>
+<a-box position="1.5 -1.9 -20" width="0.2" height="0.1" depth="0.2" color="#FFD700" material="emissive: #FFD700;"></a-box>
 
     <!-- Cinema Walls -->
-    <a-box position="0 20 -10" width="50" height="0" depth="40" color="#000"></a-box>
+    <a-box position="0 20 -10" width="50" height="0" depth="40" color="#888"></a-box>
     <a-box position="0 5 -30" width="50" height="20" depth="1" color="#888"></a-box>
     <a-box position="-25 5 -10" width="1" height="20" depth="40" color="#888"></a-box>
     <a-box position="25 5 -10" width="1" height="20" depth="40" color="#888"></a-box>
@@ -80,6 +93,11 @@
       <a-box position="10 0 -5" width="3" height="6" depth="3" color="#777"></a-box>
       <a-box position="0 0 -12" width="5" height="1" depth="3" color="#FF5722"></a-box>
     </a-entity>
+
+    <!-- Chandelier in Lobby -->
+<a-sphere position="0 8 25" radius="1.5" color="#FFD700" material="emissive: #white; roughness: 0.5;"></a-sphere>
+<a-cylinder position="0 10 25" radius="0.2" height="4" color="#white"></a-cylinder>
+
 
     <!-- Lighting -->
     <a-light type="ambient" color="#999"></a-light>
